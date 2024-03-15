@@ -1,0 +1,24 @@
+.movingBanner {
+  --banner-animation-duration: 30s;
+  display: flex; /* Define o layout dos itens em linha */
+  white-space: nowrap; /* Evita a quebra de linha dos itens */
+  animation: movingBannerEffect var(--banner-animation-duration) linear infinite;
+}
+
+@keyframes movingBannerEffect {
+  from { transform: translateX(0%); }
+  to { transform: translateX(-100%); }
+}
+
+.bannerPaused {
+  animation-play-state: paused;
+}
+
+.movingBannerItem {
+  margin-right: 20px; /* Ajuste conforme necessário para dar espaço entre os itens */
+  /* Aqui, text-shadow é removido para evitar a aplicação global que pode estar causando sobreposição. */
+}
+
+.movingBannerItem:hover {
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.6), 0 0 20px rgba(255, 255, 255, 0.6);
+}

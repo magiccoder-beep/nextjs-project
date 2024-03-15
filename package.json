@@ -1,0 +1,41 @@
+{
+  "name": "analise",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@headlessui/react": "^1.7.18",
+    "@heroicons/react": "^2.1.1",
+    "@react-three/fiber": "^8.15.19",
+    "@vercel/postgres": "^0.7.2",
+    "axios": "^1.6.7",
+    "clsx": "^2.1.0",
+    "dat.gui": "^0.7.9",
+    "dompurify": "^3.0.9",
+    "framer-motion": "^11.0.8",
+    "next": "14.1.1",
+    "pg": "^8.11.3",
+    "react": "^18.2.0",
+    "react-confetti": "^6.1.0",
+    "react-dom": "^18.2.0",
+    "react-helmet": "^6.1.0",
+    "react-icons": "^5.0.1",
+    "react-intersection-observer": "^9.8.1",
+    "react-swipeable": "^7.0.1",
+    "react-three-fiber": "^6.0.13",
+    "tailwind-merge": "^2.2.1",
+    "three": "^0.162.0",
+    "vercel": "^33.6.0"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.0.1",
+    "postcss": "^8",
+    "prettier": "^3.2.5",
+    "tailwindcss": "^3.4.1"
+  }
+}

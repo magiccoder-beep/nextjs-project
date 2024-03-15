@@ -1,0 +1,207 @@
+/* Header */
+
+.header{
+    z-index: 9000 !important;
+  }
+  
+  .header-mobile{
+    z-index: 9999 !important;
+  }
+  
+  /* Hero */
+  
+  @keyframes moveBola1 {
+      0% {
+        transform: translate(0, 0);
+      }
+      25% {
+        transform: translate(5vw, 5vh);
+      }
+      50% {
+        transform: translate(10vw, 10vh);
+      }
+      75% {
+        transform: translate(5vw, 15vh);
+      }
+      100% {
+        transform: translate(0vw, 20vh);
+      }
+    }
+    
+    @keyframes moveBola2 {
+      0% {
+        transform: translate(0, 0);
+      }
+      25% {
+        transform: translate(-5vw, -5vh);
+      }
+      50% {
+        transform: translate(-10vw, -10vh);
+      }
+      75% {
+        transform: translate(-5vw, -15vh);
+      }
+      100% {
+        transform: translate(0vw, -20vh);
+      }
+    }
+    
+    
+    .animate-moveBola1 {
+      animation: moveBola1 10s infinite alternate ease-in-out;
+    }
+    
+    .animate-moveBola2 {
+      animation: moveBola2 10s infinite alternate ease-in-out;
+    }
+    
+/* MovingBanner.module.css */
+
+@keyframes movingBannerEffect {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+.movingBanner {
+  animation: movingBannerEffect var(--banner-animation-duration) linear infinite;
+  animation-play-state: var(--banner-animation-play-state);
+}
+
+.bannerPaused {
+  animation-play-state: paused;
+}
+
+.movingBannerItem:hover {
+  text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.6), 0 0 20px rgba(255, 255, 255, 0.6);
+}
+  
+  /* Circular Button */
+  
+  /* Keyframes para animação de rotação */
+  @keyframes rotateAnimation {
+    0%, 100% {
+      transform: rotate(0deg);
+    }
+    25% {
+      transform: rotate(180deg);
+    }
+    50% {
+      transform: rotate(180deg);
+    }
+    75% {
+      transform: rotate(120deg);
+    }
+  }
+  
+  /* Keyframes para animação de flip nos eixos X, Y, e Z */
+  @keyframes flipAnimation {
+    from {
+      transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+    }
+    to {
+      transform: rotateX(180deg) rotateY(180deg) rotateZ(180deg);
+    }
+  }
+  
+  /* Classe para o botão circular */
+  .circularbutton img {
+    animation: rotateAnimation 6s infinite linear;
+    animation-play-state: running;
+  }
+  
+  .circularbutton img.paused {
+    animation-play-state: paused; /* Pausa a animação mantendo a posição atual */
+  }
+  
+  .circularbutton:hover {
+    box-shadow: 0 0 6px 1px #0078CC; /* Sombra no botão ao fazer hover */
+  }
+  
+  .circularbutton:hover .playicon {
+    animation: flipAnimation 1s 1; /* Torna a animação mais rápida, com duração de 1 segundo */
+    animation-timing-function: ease-in-out;
+  }
+  
+  /* Prefixos de navegador para suporte cross-browser */
+  .circularbutton:hover .playicon {
+    -webkit-animation: flipAnimation 1s 1;
+    -moz-animation: flipAnimation 1s 1;
+    -o-animation: flipAnimation 1s 1;
+    animation: flipAnimation 1s 1;
+    animation-timing-function: ease-in-out;
+  }
+  
+  /* Prefixos de navegador para suporte cross-browser */
+  .circularbutton img {
+    -webkit-animation: rotateAnimation 6s infinite;
+    -moz-animation: rotateAnimation 6s infinite;
+    -o-animation: rotateAnimation 6s infinite;
+    animation: rotateAnimation 6s infinite;
+    animation-timing-function: ease-in-out;
+  }
+  
+  
+  
+  @keyframes blink {
+    0%, 100% { color: #0078CC; }
+    50% { color: #90EDED; }
+  }
+  
+  .neon-animation {
+    animation: blink 1s infinite;
+  }
+  
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+  
+  .float-animation {
+    animation: float 2s ease-in-out infinite;
+  }
+  
+  @keyframes underline {
+    0% { width: 0; }
+    100% { width: 100%; }
+  }
+  @keyframes reveal {
+    from { width: 0; }
+    to { width: 100%; }
+  }
+  
+  .reveal-animation {
+    overflow: hidden;
+    white-space: nowrap;
+    animation: reveal 2s forwards;
+    height: auto;
+  }
+  
+  
+  @keyframes neon-blink {
+    0%, 100% { color: #0078CC; }
+    50% { color: #90EDED; }
+  }
+  
+  .neon-animation {
+    animation: neon-blink 1s infinite;
+  }
+  
+  
+  /* Servicos */
+  
+  #conteudo-esquerda {
+    max-width: 80% !important; 
+  }
+  
+  
+  .card-servicos {
+    height: 594px !important;
+  }
+  
+  #p-servicos{
+    width: 600px;
+  }

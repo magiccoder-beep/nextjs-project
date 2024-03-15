@@ -1,0 +1,267 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.visualizer {
+  width: 100vw;
+  height: 100vh;
+}
+
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+@font-face {
+  font-family: 'Proxima Nova';
+  src: url('../public/fonts/ProximaNovaRegular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Proxima Nova';
+  src: url('../public/fonts/ProximaNovaBold.otf') format('opentype');
+  font-weight: 700; /* Ajuste para o peso bold */
+  font-style: normal;
+}
+
+
+/* Header */
+
+.header{
+  z-index: 9000 !important;
+}
+
+.header-mobile{
+  z-index: 9999 !important;
+}
+
+/* Hero */
+
+@keyframes moveBola1 {
+    0% {
+      transform: translate(0, 0);
+    }
+    25% {
+      transform: translate(5vw, 5vh);
+    }
+    50% {
+      transform: translate(10vw, 10vh);
+    }
+    75% {
+      transform: translate(5vw, 15vh);
+    }
+    100% {
+      transform: translate(0vw, 20vh);
+    }
+  }
+  
+  @keyframes moveBola2 {
+    0% {
+      transform: translate(0, 0);
+    }
+    25% {
+      transform: translate(-5vw, -5vh);
+    }
+    50% {
+      transform: translate(-10vw, -10vh);
+    }
+    75% {
+      transform: translate(-5vw, -15vh);
+    }
+    100% {
+      transform: translate(0vw, -20vh);
+    }
+  }
+  
+  
+  .animate-moveBola1 {
+    animation: moveBola1 10s infinite alternate ease-in-out;
+  }
+  
+  .animate-moveBola2 {
+    animation: moveBola2 10s infinite alternate ease-in-out;
+  }
+
+/* Circular Button */
+
+/* Keyframes para animação de rotação */
+@keyframes rotateAnimation {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(180deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  75% {
+    transform: rotate(120deg);
+  }
+}
+
+/* Keyframes para animação de flip nos eixos X, Y, e Z */
+@keyframes flipAnimation {
+  from {
+    transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+  }
+  to {
+    transform: rotateX(180deg) rotateY(180deg) rotateZ(180deg);
+  }
+}
+
+/* Classe para o botão circular */
+.circularbutton img {
+  animation: rotateAnimation 6s infinite linear;
+  animation-play-state: running;
+}
+
+.circularbutton img.paused {
+  animation-play-state: paused; /* Pausa a animação mantendo a posição atual */
+}
+
+.circularbutton:hover {
+  box-shadow: 0 0 6px 1px #0078CC; /* Sombra no botão ao fazer hover */
+}
+
+.circularbutton:hover .playicon {
+  animation: flipAnimation 1s 1; /* Torna a animação mais rápida, com duração de 1 segundo */
+  animation-timing-function: ease-in-out;
+}
+
+/* Prefixos de navegador para suporte cross-browser */
+.circularbutton:hover .playicon {
+  -webkit-animation: flipAnimation 1s 1;
+  -moz-animation: flipAnimation 1s 1;
+  -o-animation: flipAnimation 1s 1;
+  animation: flipAnimation 1s 1;
+  animation-timing-function: ease-in-out;
+}
+
+/* Prefixos de navegador para suporte cross-browser */
+.circularbutton img {
+  -webkit-animation: rotateAnimation 6s infinite;
+  -moz-animation: rotateAnimation 6s infinite;
+  -o-animation: rotateAnimation 6s infinite;
+  animation: rotateAnimation 6s infinite;
+  animation-timing-function: ease-in-out;
+}
+
+
+
+@keyframes blink {
+  0%, 100% { color: #0078CC; }
+  50% { color: #90EDED; }
+}
+
+.neon-animation {
+  animation: blink 1s infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.float-animation {
+  animation: float 2s ease-in-out infinite;
+}
+
+@keyframes underline {
+  0% { width: 0; }
+  100% { width: 100%; }
+}
+@keyframes reveal {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+.reveal-animation {
+  overflow: hidden;
+  white-space: nowrap;
+  animation: reveal 2s forwards;
+  height: auto;
+}
+
+
+@keyframes neon-blink {
+  0%, 100% { color: #0078CC; }
+  50% { color: #90EDED; }
+}
+
+.neon-animation {
+  animation: neon-blink 1s infinite;
+}
+
+/* Builder */
+.step-transition {
+  transition: opacity 0.5s ease-in-out;
+}
+
+.finalResultComponent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.finalResultComponent-Input {
+  display: flex;
+  flex-direction: column;
+  margin: 50px
+}
+
+.finalResultComponent-Input .label {
+  flex-direction: column;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+}
+
+.finalResultComponent-Input .body {
+  display: flex;
+  border: 1px solid black;
+  border-radius: 10px;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  font-size: 30px;
+}
+
+.finalResultComponent-Input .body .subtitle {
+  font-size: 15px;
+  color: darkgray;
+}
+
+.finalResultFlex {
+  justify-content: center;
+  align-items: center;
+  display: flex; 
+}
+
+.finalResultScheduleButton {
+  background-color: #672F93;
+  padding: 15px;
+  color: white;
+  border-radius: 15px;
+}
+
+.email-error {
+  border: 1px solid darkred;
+}
