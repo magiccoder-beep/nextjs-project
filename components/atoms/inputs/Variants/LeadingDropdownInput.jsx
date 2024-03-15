@@ -1,6 +1,6 @@
 import React from 'react';
 
-const LeadingDropdownInput = ({ id, label, placeholder, options, inputProps }) => {
+const LeadingDropdownInput = ({ id, label, placeholder, options, inputProps, ...props }) => {
   return (
     <div className='py-2'>
       <label htmlFor={id} className="block text-sm font-medium text-gray-900">
@@ -28,7 +28,9 @@ const LeadingDropdownInput = ({ id, label, placeholder, options, inputProps }) =
           id={id}
           className="block w-full rounded-md border-0 py-1.5 pl-16 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-brand-primary sm:text-sm sm:leading-6"
           placeholder={placeholder}
+          onChange={(e) => props.onChangeFunction(e.target.value)}
           {...inputProps} // Assuming any additional props for text input
+          required
         />
       </div>
     </div>

@@ -70,7 +70,9 @@ export default function Builder() {
   const [userEmail, setUserEmail] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
 
-  const [userEmailValid, setUserEmailValid] = useState(true);
+  const [userEmailValid, setUserEmailValid] = useState(false);
+  const [userNameValid, setUserNameValid] = useState(false);
+  const [phoneNumberValid, setPhoneNumberValid] = useState(false);
 
   const validateEmail = (email) => {
     // Email validation regex pattern
@@ -86,12 +88,17 @@ export default function Builder() {
       setUserEmailValid(true);
     }
     setUserEmail(value);
+    console.log(userNameValid, userEmailValid, phoneNumberValid);
   };
   const onChangeUserName = (value) => {
     setUserName(value);
+    setUserNameValid((value !== ""));
+    console.log(userNameValid, userEmailValid, phoneNumberValid);
   };
   const onChangePhoneNumber = (value) => {
     setPhoneNumber(value);
+    setPhoneNumberValid(value !== '');
+    console.log(userName, userNameValid, userEmail, userEmailValid, phoneNumber, phoneNumberValid);
   };
 
   //total value and day state
@@ -303,16 +310,17 @@ const countryOptions = [
                         onChangeFunction={onChangeUserEmail}
                         />
 
-                        { !userEmailValid && <ValidationErrorMessage errorMessage="Not a Valid Email Address" /> }
-
                         {/* LeadingDropdownInput Component */}
                         <LeadingDropdownInput
                         id="lead_number"
                         label="Seu número"
                         placeholder="99 1234-5678"
                         options={countryOptions} 
+                        onChangeFunction={onChangePhoneNumber}
                         inputProps={{}}
                         />
+
+                        { !(userEmailValid && phoneNumberValid && userNameValid) && <ValidationErrorMessage status={{userEmailValid, phoneNumberValid, userNameValid}} errorMessage="Not a Valid Email Address" /> }
 
                         
                         
@@ -344,7 +352,7 @@ const countryOptions = [
                 <button
                   onClick={handleButtonClick}
                   className="font-brand flex font-semibold items-center text-brand-tertiary hover:text-brand-tertiary-darker z-50"
-                  // disabled={currentStep === steps.length - 1} // Disable button if it's the last step
+                  disabled={currentStep === steps.length - 1 && !(userEmailValid && phoneNumberValid && userNameValid)} // Disable button if it's the last step
                 >
                   {currentStep === steps.length - 1 ? "Calcular" : "Próximo"}
                   <ChevronRightIcon className="w-5 h-5 ml-1" />
